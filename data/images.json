@@ -1,0 +1,46 @@
+{
+    "deals": [
+      { "name": "Chef Burgers London", "image": "https://res.cloudinary.com/dlu2nu7py/image/upload/v1732607958/deal1_t8ifbu.png", "discount": "-40%" },
+      { "name": "Grand Ai Cafe London", "image": "https://res.cloudinary.com/dlu2nu7py/image/upload/v1732607957/deal2_gemjwe.png", "discount": "-20%" },
+      { "name": "Butterbrot Caf'e London", "image": "https://res.cloudinary.com/dlu2nu7py/image/upload/v1732607958/deal1_t8ifbu.png", "discount": "-17%" }
+    ],
+    "Category": [
+      { "name": "Burgers & Fast food", "image": "https://res.cloudinary.com/dlu2nu7py/image/upload/v1732608384/Rectangle_13_svfvhf.png", "total": 21 },
+      { "name": "Salads", "image": "https://res.cloudinary.com/dlu2nu7py/image/upload/v1732608384/Rectangle_15_uftnsb.png", "total": 32 },
+      { "name": "Pasta & Casuals", "image": "https://res.cloudinary.com/dlu2nu7py/image/upload/v1732608384/Rectangle_17_axxyhw.png", "total": 4 },
+      { "name": "Pizza", "image": "https://res.cloudinary.com/dlu2nu7py/image/upload/v1732608384/Rectangle_19_ydaizh.png", "total": 32 },
+      { "name": "Breakfast", "image": "https://res.cloudinary.com/dlu2nu7py/image/upload/v1732608384/Rectangle_21_aopvxf.png", "total": 12 },
+      { "name": "Soups", "image": "https://res.cloudinary.com/dlu2nu7py/image/upload/v1732608383/Rectangle_23_lo0468.png", "total": 28 }
+    ],
+    "restourants": [
+      { "name": "McDonald's Delhi", "image": "https://res.cloudinary.com/dlu2nu7py/image/upload/v1732608956/Rectangle_13_1_grpwpx.png" },
+      { "name": "Papa Johns", "image": "https://res.cloudinary.com/dlu2nu7py/image/upload/v1732608956/Rectangle_13_2_gihyx9.png" },
+      { "name": "KFC West Delhi", "image": "https://res.cloudinary.com/dlu2nu7py/image/upload/v1732608956/Rectangle_13_3_qip16x.png" },
+      { "name": "Texas Chicken", "image": "https://res.cloudinary.com/dlu2nu7py/image/upload/v1732608956/Rectangle_13_4_anstbn.png" },
+      { "name": "Burger King", "image": "https://res.cloudinary.com/dlu2nu7py/image/upload/v1732608956/Rectangle_13_5_whyop6.png" },
+      { "name": "Shaurma 1", "image": "https://res.cloudinary.com/dlu2nu7py/image/upload/v1732608955/Rectangle_13_6_ejq9am.png" }
+    ],
+    "promotions": [
+        { "name": "Partner with us", "image": "https://res.cloudinary.com/dlu2nu7py/image/upload/v1732609455/Rectangle_8_zhpuma.png", "title":"Earn more with lower fees", "description": "Signup as a business" },
+        { "name": "Ride with us", "image": "https://res.cloudinary.com/dlu2nu7py/image/upload/v1732609455/Rectangle_8_1_h5otll.png", "title":"Avail exclusive perks", "description": "Signup as a rider" }
+    ],
+    "workflow": [
+        { "name": "Place an Order!", "image": "https://res.cloudinary.com/dlu2nu7py/image/upload/v1732609812/order-food_1_l0ocnt.png", "description": "Place order through our websire or Mobile app" },
+        { "name": "Track Progress", "image": "https://res.cloudinary.com/dlu2nu7py/image/upload/v1732609812/food_1_1_cri1cn.png", "description": "You can track your orde status with delivery time" },
+        { "name": "Get your Order!", "image": "https://res.cloudinary.com/dlu2nu7py/image/upload/v1732609811/order_1_znl5a6.png", "description": "Receive your order at a lighting fast speed!" }
+    ],
+    "discount": [
+        { "name": "First Order Discount", "image": "https://res.cloudinary.com/dlu2nu7py/image/upload/v1732610289/Rectangle_8_2_ydsutm.png", "discount":"-20%", "address":"McDonald's West Delhi" },
+        { "name": "Vegan Discount", "image": "https://res.cloudinary.com/dlu2nu7py/image/upload/v1732610289/Rectangle_8_3_boaqdh.png", "discount":"-20%", "address":"McDonald's East Delhi" },
+        { "name": "Free Ice Cream", "image": "https://res.cloudinary.com/dlu2nu7py/image/upload/v1732610289/Rectangle_8_4_jp4k4x.png", "discount":"-100%", "address":"McDonald's West Delhi" }
+    ],
+    "opening": [
+        { "day": "Monday", "delivery": " 12:00 AM–3:00 AM, 8:00 AM–3:00 AM", "operational":"8:00 AM–3:00 AM" },
+        { "day": "Tuesday", "delivery": "8:00 AM–3:00 AM", "operational":"8:00 AM–3:00 AM" },
+        { "day": "Wednesday", "delivery": "8:00 AM–3:00 AM", "operational":"8:00 AM–3:00 AM" },
+        { "day": "Thrusday", "delivery": "8:00 AM–3:00 AM", "operational":"8:00 AM–3:00 AM" },
+        { "day": "Friday", "delivery": "8:00 AM–3:00 AM", "operational":"8:00 AM–3:00 AM" },
+        { "day": "Saturday", "delivery": "8:00 AM–3:00 AM", "operational":"8:00 AM–3:00 AM" },
+        { "day": "Sunday", "delivery": "8:00 AM–3:00 AM", "operational":"8:00 AM–3:00 AM" }
+    ]
+  }

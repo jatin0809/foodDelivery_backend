@@ -35,5 +35,19 @@ router.get("/:category", async (req, res)=> {
     }
 })
 
+// get by id
+router.get("/search/:id", async (req, res)=> {
+    const {id} = req.params;
+    try {
+        const product = await Product.findById(id);
+        if (!product) {
+            return res.status(404).json({ message: "No products found " });
+        }
+        res.status(200).json(product);
+    } catch (error) {
+        res.status(500).json({ message: "An error occurred", error: error.message });
+    }
+})
+
 
 module.exports = router;

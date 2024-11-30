@@ -41,15 +41,16 @@ router.post("/login", async (req, res)=> {
     const {email, password} = req.body;
     const user = await User.findOne({email});
     if(!user){
-        return res.status(400).json({message: "Wrong email or password"});
+        return res.status(401).json({message: "Wrong email or password"});
     }
     const isPasswordMatched = await bcrypt.compare(password, user.password);
     if(!isPasswordMatched){
-        return res.status(400).json({message: "wrong email or password"});
+        return res.status(401).json({message: "wrong email or password"});
     }
+    const userId = user._id;
     const payload = {id:user._id};
     const token = jsonwebtoken.sign(payload, process.env.JWT_SECRET);
-    res.status(200).json({token});
+    res.status(200).json({token, userId});
 })
 
 //updating user details
