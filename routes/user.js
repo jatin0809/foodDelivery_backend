@@ -27,9 +27,9 @@ router.get("/", async (req, res)=>{
 })
 
 // get user by email
-router.get("/:email", async (req, res)=>{
-    const {email} = req.params;
-    const user = await User.find({email});
+router.get("/:id", async (req, res)=>{
+    const {id} = req.params;
+    const user = await User.findById(id);
     if(!user){
         return res.status(404).json({message: "User not found"});
     }

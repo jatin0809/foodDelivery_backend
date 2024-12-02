@@ -12,6 +12,8 @@ const productRouter = require("./routes/product");
 const imageRouter = require("./routes/image");
 const reviewRouter = require("./routes/reviews.js");
 const cartRouter = require("./routes/cart.js")
+const addressRouter = require("./routes/address.js");
+const cardRouter = require("./routes/card.js");
 
 const app = express();
 app.use(cors());
@@ -24,6 +26,8 @@ app.use("/api/v1/products", productRouter);
 app.use("/api/v1/images", imageRouter);
 app.use("/api/v1/reviews", reviewRouter);
 app.use("/api/v1/cart", cartRouter);
+app.use("/api/v1/address", addressRouter);
+app.use("/api/v1/card", cardRouter);
 
 
 

@@ -74,48 +74,51 @@ router.post("/add", async (req, res) => {
 router.post("/remove", async (req, res) => {
   const { userId, productId } = req.body;
 
-  // Validate the incoming request
   if (!userId || !productId) {
-    return res.status(400).json({ message: "Invalid data" });
+    return res.status(400).json({ message: "Invalid input data" });
   }
 
   try {
-    // Find the cart for the user
-    const cart = await Cart.findOne({ userId });
+    let cart = await Cart.findOne({ userId });
 
     if (!cart) {
       return res.status(404).json({ message: "Cart not found" });
     }
 
-    // Find the product in the cart
-    const productIndex = cart.items.findIndex(
+    const itemIndex = cart.items.findIndex(
       (item) => item.productId.toString() === productId
     );
 
-    if (productIndex === -1) {
+    if (itemIndex === -1) {
       return res.status(404).json({ message: "Product not found in cart" });
     }
 
-    // Decrease the quantity or remove the product if the quantity is 1
-    const product = cart.items[productIndex];
-    if (product.quantity > 1) {
-      product.quantity -= 1;
-    } else {
-      cart.items.splice(productIndex, 1); // Remove product from cart
+    
+    cart.items[itemIndex].quantity -= 1;
+
+    if (cart.items[itemIndex].quantity <= 0) {
+      cart.items.splice(itemIndex, 1); 
     }
 
-    // Recalculate total price
-    cart.totalPrice = await calculateTotalPrice(cart.items);
+    // total price
+    cart.totalPrice = cart.items.reduce(
+      (total, item) => total + item.quantity * item.price,
+      0
+    );
 
-    // Save the updated cart
-    await cart.save();
-
-    res.status(200).json({ message: "Product quantity updated", cart });
+    if (cart.items.length === 0) {
+      await Cart.deleteOne({ userId });
+      return res.status(200).json({ message: "Cart is empty and has been deleted" });
+    } else {
+      await cart.save();
+      res.status(200).json({ message: "Product count decreased successfully", });
+    }
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server error", error: error.message });
   }
 });
+
 
 // get by id 
 router.get("/:userId", async (req, res) => {
@@ -136,18 +139,6 @@ router.get("/:userId", async (req, res) => {
   }
 });
 
-// Helper function to calculate total price
-// const calculateTotalPrice = async (items) => {
-//   const { Product } = require("../schema/product.schema"); // Import Product model
-//   let total = 0;
 
-//   for (const item of items) {
-//     const product = await Product.findById(item.productId);
-//     if (product) {
-//       total += product.price * item.quantity;
-//     }
-//   }
-//   return total;
-// };
 
 module.exports = router;
