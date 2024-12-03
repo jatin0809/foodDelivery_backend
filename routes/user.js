@@ -56,22 +56,16 @@ router.post("/login", async (req, res)=> {
 //updating user details
 router.put("/:id", authMiddleware, async (req, res) => {
     const { id } = req.params; 
-    const { name, email, number, country, gender, password } = req.body;
+    const { name, email, country, gender } = req.body;
   
     try {
       const user = await User.findById(id);
       if (!user) {
         return res.status(404).json({ message: 'User not found' });
       }
-  
-      if (password) {
-        const salt = await bcrypt.genSalt(10);
-        user.password = await bcrypt.hash(password, salt);
-      }
 
       if (name) user.name = name;
       if (email) user.email = email;
-      if (number) user.number = number;
       if (country) user.country = country;
       if (gender) user.gender = gender;
   

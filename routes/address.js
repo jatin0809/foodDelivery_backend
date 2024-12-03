@@ -13,13 +13,15 @@ router.post("/add", async (req, res) => {
         userAddress = new Address({
           userId,
           userName,
-          addresses: [ {  state,  city,  pincode,  phoneNumber,  street,  isDefault: false } ],
+          addresses: [ {  state,  city,  pincode,  phoneNumber,  street,  isDefault: true } ],
         });
         await userAddress.save();
         return res.status(201).json({ message: "Address added successfully" });
       }
-  
-      userAddress.addresses.push({   state,  city,  pincode,  phoneNumber,  street,  isDefault: false, });
+
+      const isDefault = userAddress.addresses.length === 0;
+
+      userAddress.addresses.push({   state,  city,  pincode,  phoneNumber,  street,  isDefault });
       await userAddress.save();
       return res.status(201).json({ message: "Address added successfully" });
 
