@@ -8,7 +8,6 @@ const userSchema = new schema({
     number: { type: String, required: true },
     country: { type: String, required: false, default:null },
     gender: { type: String, enum: ['Male', 'Female', 'Other'], required: false },
-    paymentOptions: { type: [String], required: false, default: ["Wallet", "MaestroCard", "Paypal", "Stripe"] },
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now },
   })
